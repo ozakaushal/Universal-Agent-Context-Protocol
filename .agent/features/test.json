@@ -1,0 +1,19 @@
+{
+  "feature": "test",
+  "files": [
+    "test/index.test.js"
+  ],
+  "conventions": [
+    "Keep changes scoped to this feature.",
+    "Run deterministic verification before marking done."
+  ],
+  "status": "not_started",
+  "last_verified_commit": "uncommitted",
+  "handoff": {
+    "goal": "",
+    "done": [],
+    "todo": [],
+    "current_diff_summary": "",
+    "next_command": ""
+  }
+}

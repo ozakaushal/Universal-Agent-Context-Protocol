@@ -1,0 +1,12 @@
+{
+  "project": "AgentProtocol",
+  "stack": [
+    "Node.js"
+  ],
+  "global_conventions": {
+    "styling": "Follow existing project conventions.",
+    "commits": "conventional commits"
+  },
+  "features_dir": ".agent/features/",
+  "index": ".agent/index.json"
+}

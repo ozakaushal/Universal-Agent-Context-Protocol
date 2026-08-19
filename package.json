@@ -1,0 +1,32 @@
+{
+  "name": "agent-context-protocol",
+  "version": "0.1.0-preview.2",
+  "description": "Early preview. Universal Agent Context Protocol: deterministic context handoffs for any codebase.",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozakaushal/Universal-Agent-Context-Protocol.git"
+  },
+  "homepage": "https://github.com/ozakaushal/Universal-Agent-Context-Protocol#readme",
+  "bugs": {
+    "url": "https://github.com/ozakaushal/Universal-Agent-Context-Protocol/issues"
+  },
+  "type": "commonjs",
+  "main": "src/index.js",
+  "bin": {
+    "uacp": "bin/uacp.js"
+  },
+  "files": ["bin", "src", "README.md", "LICENSE", "NOTICE", "SECURITY.md"],
+  "publishConfig": {
+    "tag": "preview"
+  },
+  "scripts": {
+    "test": "node --test",
+    "lint": "node --check bin/uacp.js && node --check src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["ai", "agents", "context", "handoff", "cli", "codex", "claude"]
+}

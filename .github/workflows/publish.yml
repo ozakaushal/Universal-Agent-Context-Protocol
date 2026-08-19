@@ -1,0 +1,73 @@
+name: Publish to npm
+
+# Publishes via npm Trusted Publishing (OIDC). No NPM_TOKEN secret is used.
+# Requires a trusted publisher configured at:
+#   npmjs.com > package > Settings > Trusted Publisher
+#   Organization or user: ozakaushal
+#   Repository:           Universal-Agent-Context-Protocol
+#   Workflow filename:    publish.yml
+#   Environment name:     npm-publish   (must match the `environment:` key below)
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run lint, test and a publish dry-run without publishing
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    permissions:
+      contents: read
+      id-token: write # required: lets the runner mint the OIDC token npm verifies
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24 # trusted publishing needs Node >= 22.14.0
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm >= 11.5.1; pin explicitly rather than
+      # relying on whichever npm the Node image happens to bundle.
+      - name: Ensure npm supports trusted publishing
+        run: |
+          npm install -g npm@latest
+          npm --version
+
+      # No lockfile and no runtime dependencies, so `npm ci` is not usable here.
+      - name: Install
+        run: npm install --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Check release tag matches package.json version
+        if: github.event_name == 'release'
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          pkg="$(node -p "require('./package.json').version")"
+          if [ "$tag" != "$pkg" ]; then
+            echo "Release tag '$tag' does not match package.json version '$pkg'." >&2
+            exit 1
+          fi
+
+      - name: Preview package contents
+        run: npm publish --dry-run
+
+      # No NODE_AUTH_TOKEN. Provenance attestation is generated automatically
+      # by trusted publishing, so --provenance is not passed.
+      - name: Publish
+        if: github.event_name == 'release' || inputs.dry_run == false
+        run: npm publish --access public

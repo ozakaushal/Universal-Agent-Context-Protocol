@@ -1,0 +1,6 @@
+UACP is an early preview release, published for transparency, evaluation, and active
+testing. It is not recommended for production repositories, and its behaviour and
+generated file formats may change without notice.
+
+Public availability does not grant permission to reuse, modify, or distribute it.
+See LICENSE.

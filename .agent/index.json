@@ -1,0 +1,41 @@
+{
+  "last_synced_commit": "uncommitted",
+  "files": {
+    ".claude/skills/ship/SKILL.md": {
+      "feature": "features/root.json",
+      "hash": "3ffed64cec8fc4ac22d723136a11922ff4af2c39d5e15208f651169499998651"
+    },
+    ".github/workflows/publish.yml": {
+      "feature": "features/root.json",
+      "hash": "95207e05b77901f2871d326b7f6bccb61553fd6ad597c103528976158296d5eb"
+    },
+    "AGENTS.md": {
+      "feature": "features/agents.json",
+      "hash": "7124525d9e039d8a25185a1f022110c479cd4dfbc2912fb04fb1175ea51a69d2"
+    },
+    "README.md": {
+      "feature": "features/readme.json",
+      "hash": "7570fde31d08c45a38152096406ad21332627050b733db828aa5ba0fa9ce809a"
+    },
+    "SECURITY.md": {
+      "feature": "features/security.json",
+      "hash": "a00171a86f19998971ba58b4a24937d18f5ea3f4e1094c249b8e8701cfbace44"
+    },
+    "bin/uacp.js": {
+      "feature": "features/bin.json",
+      "hash": "84de73d22be05f089548f3a1192845c42aadb8d86501f8e8de4069a21ef66b67"
+    },
+    "package.json": {
+      "feature": "features/package.json",
+      "hash": "103d8043515171c6ce891bc91b0f76ce60c8cfdd7cc18fb851af5e9407fb9f34"
+    },
+    "src/index.js": {
+      "feature": "features/index.json",
+      "hash": "018897696e8d4c9078334821eed46514c1eedf784e28311539aa5218f9889e71"
+    },
+    "test/index.test.js": {
+      "feature": "features/test.json",
+      "hash": "3c9a4b9fefab74b0f9abc2aac8419b6e63a7f79a8a600441e4ff10b3307baea3"
+    }
+  }
+}
