@@ -8,13 +8,22 @@
     "Keep changes scoped to this feature.",
     "Run deterministic verification before marking done."
   ],
-  "status": "not_started",
-  "last_verified_commit": "uncommitted",
+  "status": "in_progress",
+  "last_verified_commit": "c2a568a",
   "handoff": {
-    "goal": "",
-    "done": [],
-    "todo": [],
-    "current_diff_summary": "",
-    "next_command": ""
+    "goal": "Give the repository a main trunk and route release work through pull requests.",
+    "done": [
+      "Created main at fc59262 and set it as the GitHub default branch (the repo had shipped with feat/initial-release as default, so no PR base existed).",
+      "Resynced .agent/index.json via `node bin/uacp.js update` and committed it as c2a568a.",
+      "Opened PR #1 (feat/initial-release -> main).",
+      "Verified: npm run lint, npm test (4/4), .agent/verify.sh root -> PASS."
+    ],
+    "todo": [
+      "Merge PR #1 after review.",
+      "Tag v0.1.0-preview.2 on main and create the GitHub Release to publish to npm (npm currently holds only 0.1.0-preview.1). Confirm with the user first; the version number is burned once published.",
+      "Add a 'create main if absent' step to the ship skill so a fresh repo never ends up without a PR base."
+    ],
+    "current_diff_summary": "Handoff bookkeeping only; no runtime code changed on this branch.",
+    "next_command": "gh pr view 1"
   }
 }
